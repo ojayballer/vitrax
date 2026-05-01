@@ -29,11 +29,13 @@ The new components compared to a standard Transformer are the patch embedding (r
 
 Trained on Tiny ImageNet (100k images, 200 classes, 64x64 RGB) on a Kaggle P100. No data augmentation, no dropout, no learning rate scheduling. Just the raw architecture with AdamW.
 
+
 | | |
 |---|---|
 | Best Validation Accuracy | **21.84%** |
-| Training Accuracy (at best val) | 29.47% |
+| Training Accuracy | 96.11% |
 | Random Chance | 0.50% (1/200) |
+
 
 ViTs lack the inductive biases that CNNs have. Convolutions bake in translation invariance and locality, meaning the network already "knows" that nearby pixels matter before it sees a single training example. Transformers have none of that. Every spatial relationship has to be learned from scratch, purely from data. The original ViT paper needed JFT-300M (300 million images) to reach competitive performance with CNNs. This model was trained on 100k images with no data augmentation, no dropout, and no learning rate scheduling, which means it had to discover both what features matter and where they are in the image, all from a relatively small dataset with nothing to prevent it from memorizing.
 
